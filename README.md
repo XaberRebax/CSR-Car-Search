@@ -2,6 +2,9 @@
 Project feedback, bug reports and comments are welcomed over at our discord server: https://discord.gg/XVZbNan <br>
 
 **Notes:**<br>
+**Important notice**
+1. Because the file is encrypted, some players are misled by the antivirus software when running the EXE file. Please add the file trust to open it normally.<br>
+
 **Important updates**
 1. The project has undergone 1 year and 6 months of updates. In order to maintain this huge project, I paid a lot of time and energy. In order to maintain my motivation for subsequent updates, after a careful decision, I changed to a partial payment model from the next version. <br>
 
