@@ -12,7 +12,7 @@ Players can freely use all the cars in the current version. The new version upda
 
 4. Charge according to the number of updates of the main version, a single payment of $15 or $25, including all cars in the current new version. <br>
 
-5. When the player pays, leave a message on the email address, I will reply to the email in time to inform the decompression password, or contact me at discord. <br>
+5. When the player pays, leave a message on the email address and your Machine code, I will reply to the email in time to inform the password, or contact me at discord. <br>
 
 6. Payment link: (or click the donate button below) <br>
 [![](https://github.com/wear87/Picture-Material/blob/master/CSR2%20Material/paypal2.png)](https://www.paypal.me/wear87)
