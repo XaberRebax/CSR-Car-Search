@@ -1,4 +1,4 @@
-# CSR-Racing-2
+# CSR-Car-Search
 Project feedback, bug reports and comments are welcomed over at our discord server: https://discord.gg/XVZbNan <br>
 
 
