@@ -1,6 +1,12 @@
 # CSR-Racing-2
 Project feedback, bug reports and comments are welcomed over at our discord server: https://discord.gg/XVZbNan <br>
 
+
+To search for a car click on "Go to file" from the top menu abover the files and folders.
+
+
+Full credit and origional content provider update information below. I may update this search but it will not be for every spec.
+
 **Notes:**<br>
 **Important notice**
 1. Because the file is encrypted, some players are misled by the antivirus software when running the EXE file. Please add the file trust to open it normally.<br>
