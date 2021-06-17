@@ -8,110 +8,111 @@ To search for a car click on "Go to file" from the top menu abover the files and
 Full credit and origional content provider update information below. I may update this search but it will not be for every spec.
 
 
-Project feedback, bug reports and comments are welcomed over at our discord server: https://discord.gg/XVZbNan <br> (Unknown status)
+<div id="smart-button-container">
+    <div style="text-align: center"><label for="description">IT Services </label><input type="text" name="descriptionInput" id="description" maxlength="127" value=""></div>
+      <p id="descriptionError" style="visibility: hidden; color:red; text-align: center;">Please enter a description</p>
+    <div style="text-align: center"><label for="amount"> </label><input name="amountInput" type="number" id="amount" value="" ><span> USD</span></div>
+      <p id="priceLabelError" style="visibility: hidden; color:red; text-align: center;">Please enter a price</p>
+    <div id="invoiceidDiv" style="text-align: center; display: none;"><label for="invoiceid">Xaber Rebax </label><input name="invoiceid" maxlength="127" type="text" id="invoiceid" value="" ></div>
+      <p id="invoiceidError" style="visibility: hidden; color:red; text-align: center;">Please enter an Invoice ID</p>
+    <div style="text-align: center; margin-top: 0.625rem;" id="paypal-button-container"></div>
+  </div>
+  <script src="https://www.paypal.com/sdk/js?client-id=AeqCVAWmxPvS0BmYjx__O3OdVuToO2Lp0bF21Qn6B_PMmEWK8cmDJfVApd58ElNByochylFVcHo4fjtv&currency=USD" data-sdk-integration-source="button-factory"></script>
+  <script>
+  function initPayPalButton() {
+    var description = document.querySelector('#smart-button-container #description');
+    var amount = document.querySelector('#smart-button-container #amount');
+    var descriptionError = document.querySelector('#smart-button-container #descriptionError');
+    var priceError = document.querySelector('#smart-button-container #priceLabelError');
+    var invoiceid = document.querySelector('#smart-button-container #invoiceid');
+    var invoiceidError = document.querySelector('#smart-button-container #invoiceidError');
+    var invoiceidDiv = document.querySelector('#smart-button-container #invoiceidDiv');
 
-**Notes:**<br>
-**Important notice**
-1. Because the file is encrypted, some players are misled by the antivirus software when running the EXE file. Please add the file trust to open it normally.<br>
+    var elArr = [description, amount];
 
-**Important updates**
-1. The project has undergone 1 year and 6 months of updates. In order to maintain this huge project, I paid a lot of time and energy. In order to maintain my motivation for subsequent updates, after a careful decision, I changed to a partial payment model from the next version. <br>
+    if (invoiceidDiv.firstChild.innerHTML.length > 1) {
+      invoiceidDiv.style.display = "block";
+    }
 
-2. What is the partial payment model? <br>
-Players can freely use all the cars in the current version. The new version update will be released on github in the form of a compressed package, but it is encrypted. Players can use the compressed password after payment.<br>
+    var purchase_units = [];
+    purchase_units[0] = {};
+    purchase_units[0].amount = {};
 
-3. After the new version is released, the old version of the car will cancel the encryption function and archive it in the Cars folder, which players can use at will. <br>
+    function validate(event) {
+      return event.value.length > 0;
+    }
 
-4. Charge according to the number of updates of the main version, a single payment of $15 or $25, including all cars in the current new version. <br>
+    paypal.Buttons({
+      style: {
+        color: 'silver',
+        shape: 'pill',
+        label: 'pay',
+        layout: 'vertical',
+        
+      },
 
-5. When the player pays, Please leave your email and machine ID, I will reply to the email in time to inform the password, or contact me at discord. <br>
+      onInit: function (data, actions) {
+        actions.disable();
 
-6. Payment link: (or click the donate button below) <br>
-[![](https://github.com/wear87/Picture-Material/blob/master/CSR2%20Material/paypal2.png)](https://www.paypal.me/wear87)
+        if(invoiceidDiv.style.display === "block") {
+          elArr.push(invoiceid);
+        }
 
-In order to make it easier for players to find cars, and the original catalog was bloated, I took the time to optimize the catalog. The cars in the cars folder were changed from the activity classification to the brand classification, so that the classification is clearer in structure.<br>
-Quickly find car links →  https://git.io/JfApq  <br>
-Finishing date: April 6, 2021
+        elArr.forEach(function (item) {
+          item.addEventListener('keyup', function (event) {
+            var result = elArr.every(validate);
+            if (result) {
+              actions.enable();
+            } else {
+              actions.disable();
+            }
+          });
+        });
+      },
 
-① Donations are welcome!<br>
-Keeping a project this big running smoothly really need lots of effort and we put lots of our free times into it.<br>
-We will keep on releasing new cars as soon as the game update is rolled out and keep them nice and clean directly extract from the game codes **for free**.<br>
-But we could need your help! Donate to this project and help us! Buy us a cup of coffee or a muffin will make our days!<br>
-This is 100% optional and you can still use our project for free as usual. <br>
-Join our discord channel and ask all about it in the project chatting room!<br>
-Thanks for your support and happy racing!<br>
-[![](https://github.com/wear87/Picture-Material/blob/master/CSR2%20Material/Paypal-Donate-Button.png)](https://www.paypal.me/wear87)
+      onClick: function () {
+        if (description.value.length < 1) {
+          descriptionError.style.visibility = "visible";
+        } else {
+          descriptionError.style.visibility = "hidden";
+        }
 
-② Request to link your database to this project:<br>
-We welcome the use of our project for non-commercial purposes!<br>
-Please reach out to us on Discord and we'll review and grant the permission on a case by case basis.<br>
+        if (amount.value.length < 1) {
+          priceError.style.visibility = "visible";
+        } else {
+          priceError.style.visibility = "hidden";
+        }
 
-③ Due to the large number of car catalogs, it is recommended to use the github search function to find the car you need.<br>
-Link address: https://git.io/JfApq <br>
-****
-**Project Description:** <br>
-All cars are normally taken from the game without any destructive codes. <br>
-All cars are stock configuration without any upgrades or modification. <br>
-This project ONLY includes official colors and rare imports colors. <br>
-This project is built for car collection, learning and communication purposes. Any commercial use is prohibited. <br>
-After a new version is released, cars from the previous version will be archived into the /Cars folder. <br>
-****
-## Update to 3.1.0
-![](https://github.com/wear87/Picture-Material/blob/master/CSR2%20Material/3.1.0.png)
-****
-## Update to 3.0.2→3.0.3
-![](https://github.com/wear87/Picture-Material/blob/master/CSR2%20Material/3.0.2-Elite%20Tokin.png)
-![](https://github.com/wear87/Picture-Material/blob/master/CSR2%20Material/3.0.2.png)
-****
-## Update to 2.18.0→2.18.1→2.18.2→2.18.3
-![](https://github.com/wear87/Picture-Material/blob/master/CSR2%20Material/2.18.2.png)
-![](https://github.com/wear87/Picture-Material/blob/master/CSR2%20Material/2.18.0-Elite%20Tokin.png)
-![](https://github.com/wear87/Picture-Material/blob/master/CSR2%20Material/2.18.0.png)
-****
-## Update to 2.17.0→2.17.2→2.17.4→2.17.5
-![](https://github.com/wear87/Picture-Material/blob/master/CSR2%20Material/2.17.0-Elite%20Tokin.png)
-![](https://github.com/wear87/Picture-Material/blob/master/CSR2%20Material/2.17.0_Final.png)
-****
-## Update to 2.16.0
-![](https://github.com/wear87/Picture-Material/blob/master/CSR2%20Material/2.16.0-Elite%20Tokin_Complete.png)
-![](https://github.com/wear87/Picture-Material/blob/master/CSR2%20Material/2.16.0b1.png)
-****
-## Update to 2.15.0→2.15.1→2.15.2
-![](https://github.com/wear87/Picture-Material/blob/master/CSR2%20Material/2.15.0-Elite%20Tokin2.png)
-![](https://github.com/wear87/Picture-Material/blob/master/CSR2%20Material/2.15.0b3.png)
-****
-## Update to 2.14.0→2.14.1
-![](https://github.com/wear87/Picture-Material/blob/master/CSR2%20Material/2.14.0-Elite%20Tokin.png)
-![](https://github.com/wear87/Picture-Material/blob/master/CSR2%20Material/2.14.0.png)
-****
-## Update to 2.13.0
-![](https://github.com/wear87/Picture-Material/blob/master/CSR2%20Material/2.13.0-Elite%20Tokin.png)
-![](https://github.com/wear87/Picture-Material/blob/master/CSR2%20Material/2.13.0.png)
-****
-## Update to 2.12.0→2.12.1→2.12.2
-![](https://github.com/wear87/Picture-Material/blob/master/CSR2%20Material/2.12.0-Elite%20Tokin.png)
-![](https://github.com/wear87/Picture-Material/blob/master/CSR2%20Material/2.12.0-2.png)
-[![](https://github.com/wear87/Picture-Material/blob/master/CSR2%20Material/2.12%20-Coming%20Soon.jpg)](https://csrracingofficial.tumblr.com/)
-****
-## Update to 2.11.0→2.11.1
-![](https://github.com/wear87/Picture-Material/blob/master/CSR2%20Material/2.11.0-Elite%20Tokin.png)
-![](https://github.com/wear87/Picture-Material/blob/master/CSR2%20Material/2.11.0.png)
-****
-## Update to 2.10.0→2.10.1→2.10.2→2.10.3
-![](https://github.com/wear87/Picture-Material/blob/master/CSR2%20Material/2.10.0-Elite%20Tokin.png) 
-****
-![](https://github.com/wear87/Picture-Material/blob/master/CSR2%20Material/2.9.3.png)  
-****
-![](https://github.com/wear87/Picture-Material/blob/master/CSR2%20Material/British_event.png)<br>
-![](https://github.com/wear87/Picture-Material/blob/master/CSR2%20Material/Bugatti%20110th%20Anniversary.png)<br>
-![](https://github.com/wear87/Picture-Material/blob/master/CSR2%20Material/Hobbs%26Shaw.png)<br>
-![](https://github.com/wear87/Picture-Material/blob/master/CSR2%20Material/Fast%26furious2.png)<br>
-![](https://github.com/wear87/Picture-Material/blob/master/CSR2%20Material/Fast%26furious1.png)<br>
-![](https://github.com/wear87/Picture-Material/blob/master/CSR2%20Material/Lamborghini%26Pagani.png)<br>
-![](https://github.com/wear87/Picture-Material/blob/master/CSR2%20Material/Italia%26America.png)<br>
-![](https://github.com/wear87/Picture-Material/blob/master/CSR2%20Material/CSR2_Cover.png)<br>
+        if (invoiceid.value.length < 1 && invoiceidDiv.style.display === "block") {
+          invoiceidError.style.visibility = "visible";
+        } else {
+          invoiceidError.style.visibility = "hidden";
+        }
 
-Discord Server: https://discord.gg/XVZbNan <br>
-Player Communication Forum: http://4pda.ru/forum/index.php?showtopic=904680<br>
-Official Q&A Forum: https://zyngasupport.helpshift.com/a/csr-2/?p=all><br>
-Official Development Blog: https://csrracingofficial.tumblr.com/post/189370559780/290-dev-blog
+        purchase_units[0].description = description.value;
+        purchase_units[0].amount.value = amount.value;
+
+        if(invoiceid.value !== '') {
+          purchase_units[0].invoice_id = invoiceid.value;
+        }
+      },
+
+      createOrder: function (data, actions) {
+        return actions.order.create({
+          purchase_units: purchase_units,
+        });
+      },
+
+      onApprove: function (data, actions) {
+        return actions.order.capture().then(function (details) {
+          alert('Transaction completed by ' + details.payer.name.given_name + '!');
+        });
+      },
+
+      onError: function (err) {
+        console.log(err);
+      }
+    }).render('#paypal-button-container');
+  }
+  initPayPalButton();
+  </script>
